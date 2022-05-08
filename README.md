@@ -1,47 +1,47 @@
 # Virtual Pets Amok
 
 My project classes and descriptions of them:
-- VirtualPet
+- VirtualPet: 
 This is now an abstract class and contains the variables that should be shared amongst ALL pets.
 The tick() method is now abstract because the variables that change has to be different depending on if it's activated on an organic or robotic pet.
 VirtualPet has basically become the very basic framework of a pet.
-- OrganicPet
+- OrganicPet: 
 This is a regular class that extends VirtualPet.
 All variables are inherited from VirtualPet and variables specific to all organic pets are in here.
 Various methods that apply to organic pets only are in this class.
-- RoboticPet
+- RoboticPet: 
 This is a regular class that extends VirtualPet.
 All variables are inherited from VirtualPet and variables specific to all robotic pets are in here.
 Various methods that apply to robotic pets only are in this class.
-- OrganicCat
+- OrganicCat: 
 This is a regular class that extends OrganicPet and implements Cat.
 All variables are inherited from OrganicPet.
 Since OrganicPet extends VirtualPet, I have access to VirtualPet's variables and methods.
 All methods from Cat are used here.
-- OrganicDog
+- OrganicDog: 
 This is a regular class that extends OrganicPet and implements Dog.
 All variables are inherited from OrganicPet.
 Since OrganicPet extends VirtualPet, I have access to VirtualPet's variables and methods.
 All methods from Dog are used here.
-- RoboticCat
+- RoboticCat: 
 This is a regular class that extends RoboticPet and implements Cat.
 All variables are inherited from RoboticPet.
 Since RoboticPet extends VirtualPet, I have access to VirtualPet's variables and methods here.
 All methods from Cat are used here.
-- RoboticDog
+- RoboticDog: 
 This is a regular class that extends RoboticPet and implements Dog.
 All variables are inherited from RoboticPet.
 Since RoboticPet extends VirtualPet, I have access to VirtualPet's variables and methods here.
 All methods from Dog are used here.
-- Cat
+- Cat: 
 Cat is an interface class that contains methods specific to all cats.
 However, since there are organic and robotic cats, the methods have to apply differently to both.
 Therefore, I made this an interface class and the methods are overwritten in the classes that implement Cat.
-- Dog
+- Dog: 
 Dog is an interface class that contains methods specific to all dogs.
 However, since there are organic and robotic dogs, the methods have to apply differently to both.
 Therefore, I made this an interface class and the methods are overwritten in the classes that implement Dog.
-- VirtualPetShelter
+- VirtualPetShelter: 
 VirtualPetShelter contains the shelter itself and any pets that are added to it.
 It also provides the methods that affect all pets by searching through the shelter (HashMap) and executing corresponding methods derived from mostly (but not limited to) OrganicPet and RoboticPet.
 OrganicCat/Dog and RoboticCat/Dog can all add to the same HashMap, so I went this route.
@@ -49,7 +49,7 @@ The cage() and litterBox() methods reside here and keep track of the level of wa
 Cage adds all the waste stats of organic dogs and litterBox adds the waste of organic cats.
 There's also corresponding cleaning methods for cages and the litter box.
 Some methods stayed the same from the last project here, like adoptPet() and tick().
-- VirtualPetShelterApp
+- VirtualPetShelterApp: 
 Some choices were modified to make the program look cleaner when interacting with it.
 One example is clumping all the multi-pet modifiers (minus waste) into choice 1 and giving another menu to choose the specific option.
 Some options were not changed.
