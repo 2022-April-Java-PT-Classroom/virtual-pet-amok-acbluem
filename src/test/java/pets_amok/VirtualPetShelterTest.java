@@ -130,54 +130,6 @@ public class VirtualPetShelterTest {
     }
 
     @Test
-    public void shouldAddWasteToCage() {
-        shelter.addPet(testOrganicCat);
-        shelter.addPet(testRoboticCat);
-        shelter.addPet(testOrganicDog);
-        shelter.addPet(testRoboticDog);
-
-        assertEquals(50, shelter.cage());
-    }
-
-    @Test
-    public void shouldAddWasteToLitterBox() {
-        shelter.addPet(testOrganicCat);
-        shelter.addPet(testRoboticCat);
-        shelter.addPet(testOrganicDog);
-        shelter.addPet(testRoboticDog);
-
-        assertEquals(50, shelter.litterBox());
-    }
-
-    @Test
-    public void shouldCleanAllCages() {
-        OrganicDog testDefault = new OrganicDog();
-        shelter.addPet(testDefault);
-        shelter.addPet(testOrganicCat);
-        shelter.addPet(testRoboticCat);
-        shelter.addPet(testOrganicDog);
-        shelter.addPet(testRoboticDog);
-        shelter.cleanCages();
-
-        assertEquals(0, testOrganicDog.getWaste());
-        assertEquals(0, testDefault.getWaste());
-    }
-
-    @Test
-    public void shouldCleanLitterBox() {
-        OrganicCat testDefault = new OrganicCat();
-        shelter.addPet(testDefault);
-        shelter.addPet(testOrganicCat);
-        shelter.addPet(testRoboticCat);
-        shelter.addPet(testOrganicDog);
-        shelter.addPet(testRoboticDog);
-        shelter.cleanLitterBox();
-
-        assertEquals(0, testOrganicCat.getWaste());
-        assertEquals(0, testDefault.getWaste());
-    }
-
-    @Test
     public void shouldChangeStats() {
         shelter.addPet(testOrganicCat);
         shelter.addPet(testRoboticCat);

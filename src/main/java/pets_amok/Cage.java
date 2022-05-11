@@ -22,4 +22,10 @@ public class Cage {
             System.out.printf("%-10s %-10d %n", dog.getName(), dog.getWaste());
         }
     }
+
+    public void cleanCage() {
+        for (OrganicDog dog : cage.keySet()) {
+            dog.cleanWaste();
+        }
+    }
 }

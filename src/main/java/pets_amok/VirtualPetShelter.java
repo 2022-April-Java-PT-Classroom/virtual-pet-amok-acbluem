@@ -159,30 +159,6 @@ public class VirtualPetShelter {
         }
     }
 
-    public void cleanCages() {
-        for (VirtualPet pet : shelter.values()) {
-            if (pet instanceof OrganicDog) {
-                ((OrganicDog) pet).cleanWaste();
-            }
-        }
-    }
-
-    public void cleanLitterBox() {
-        for (VirtualPet pet : shelter.values()) {
-            if (pet instanceof OrganicCat) {
-                ((OrganicCat) pet).cleanWaste();
-            }
-        }
-    }
-
-    public void cleanStable() {
-        for (VirtualPet pet : shelter.values()) {
-            if (pet instanceof OrganicHorse) {
-                ((OrganicHorse) pet).cleanWaste();
-            }
-        }
-    }
-
     public void tick() {
         for (VirtualPet pet : shelter.values()) {
             pet.tick();

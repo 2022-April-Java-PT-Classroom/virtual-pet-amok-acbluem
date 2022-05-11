@@ -12,7 +12,7 @@ public class VirtualPetShelterApp {
         OrganicCat mrWiggles = new OrganicCat("Mr Wiggles", "A perpetually-drooling long-haired cat", 60, 70, 40, 90, 50, 80);
         RoboticCat doom = new RoboticCat("Doom", "A copper cat that's totally not planning to take over the world", 50, 100, 80);
         OrganicDog bubbles = new OrganicDog("Bubbles", "A very burpy but lovable poodle", 20, 30, 40, 50, 60, 70);
-        RoboticDog tank = new RoboticDog("Tank", "A shiny dog that has a heart of gold... literally", 30, 40, 50);
+        RoboticDog tank = new RoboticDog("Tank", "A shiny dog with a heart of gold... literally", 30, 40, 50);
         OrganicHorse peanut = new OrganicHorse("Peanut", "A younger paint horse but full of spirit", 80, 60, 30, 30, 40, 50);
         RoboticHorse reaper = new RoboticHorse("Reaper", "A horse with a body and guts of steel", 20, 40, 50);
 
@@ -70,36 +70,29 @@ public class VirtualPetShelterApp {
 
                 if (selection == 1) {
                     shelter.feedPets();
-                    System.out.println("You feed all the organic pets.");
-                    shelter.tick();
+                    System.out.println("You feed all the organic pets.\n");
                 } else if (selection == 2) {
                     shelter.waterPets();
-                    System.out.println("You water all the pets.");
-                    shelter.tick();
+                    System.out.println("You water all the pets.\n");
                 } else if (selection == 3) {
                     shelter.oilPets();
-                    System.out.println("You oil all the robotic pets.");
-                    shelter.tick();
+                    System.out.println("You oil all the robotic pets.\n");
                 } else if (selection == 4) {
                     shelter.fixPets();
-                    System.out.println("You fix all the robotic pets.");
-                    shelter.tick();
+                    System.out.println("You fix all the robotic pets.\n");
                 } else if (selection == 5) {
                     shelter.walkDogs();
-                    System.out.println("You walk all the dogs.");
-                    shelter.tick();
+                    System.out.println("You walk all the dogs.\n");
                 } else if (selection == 6) {
                     shelter.herdCats();
-                    System.out.println("You somehow manage to herd all the cats.");
-                    shelter.tick();
+                    System.out.println("You somehow manage to herd all the cats.\n");
                 } else if (selection == 7) {
                     shelter.rideHorses();
-                    System.out.println("Your bum hurts, but you ride all the horses.");
-                    shelter.tick();
+                    System.out.println("Your bum hurts, but you ride all the horses.\n");
                 } else {
                     System.out.println(errorMessage);
                 }
-
+                shelter.tick();
             } else if (userChoice == 2) {
                 System.out.println("What would you like to do?");
                 System.out.println("1. Play with a pet.");
@@ -129,8 +122,6 @@ public class VirtualPetShelterApp {
                     String pet = userInput.nextLine();
 
                     shelter.giveTreat(pet, treat);
-
-                    shelter.tick();
                 }
 
                 shelter.tick();
@@ -143,11 +134,11 @@ public class VirtualPetShelterApp {
                 int selection = userInput.nextInt();
 
                 if (selection == 1) {
-                    shelter.cleanCages();
+                    cage.cleanCage();
                 } else if (selection == 2) {
-                    shelter.cleanLitterBox();
+                    litterBox.cleanLitterBox();
                 } else if (selection == 3) {
-                    shelter.cleanStable();
+                    stable.cleanStable();
                 } else {
                     System.out.println(errorMessage);
                 }
@@ -217,6 +208,7 @@ public class VirtualPetShelterApp {
                         }
 
                         shelter.addPet(newOrganicCat);
+                        litterBox.addCat((newOrganicCat));
                     } else if (type == 2) {
                         RoboticCat newRoboticCat;
 
@@ -378,6 +370,7 @@ public class VirtualPetShelterApp {
                         }
 
                         shelter.addPet(newOrganicHorse);
+                        stable.addHorse(newOrganicHorse);
                     } else if (type == 2) {
                         RoboticHorse newRoboticHorse;
 

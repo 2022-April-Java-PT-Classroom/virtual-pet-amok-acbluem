@@ -22,4 +22,10 @@ public class LitterBox {
             System.out.printf("%-10s %-10d %n", cat.getName(), cat.getWaste());
         }
     }
+
+    public void cleanLitterBox() {
+        for (OrganicCat cat : litterBox.keySet()) {
+            cat.cleanWaste();
+        }
+    }
 }

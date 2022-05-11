@@ -22,4 +22,10 @@ public class Stable {
             System.out.printf("%-10s %-10d %n", horse.getName(), horse.getWaste());
         }
     }
+
+    public void cleanStable() {
+        for (OrganicHorse horse : stable.keySet()) {
+            horse.cleanWaste();
+        }
+    }
 }
