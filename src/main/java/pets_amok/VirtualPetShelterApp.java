@@ -103,6 +103,7 @@ public class VirtualPetShelterApp {
                 System.out.println("Would you like to clean the cages or the litter box?");
                 System.out.println("1. Cages");
                 System.out.println("2. Litter Box");
+                System.out.println("3. Stable");
 
                 int selection = userInput.nextInt();
 
@@ -110,6 +111,8 @@ public class VirtualPetShelterApp {
                     shelter.cleanCages();
                 } else if (selection == 2) {
                     shelter.cleanLitterBox();
+                }else if (selection == 3) {
+                    shelter.cleanStable();
                 } else {
                     System.out.println(errorMessage);
                 }

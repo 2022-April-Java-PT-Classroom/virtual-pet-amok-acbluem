@@ -41,6 +41,7 @@ public class VirtualPetShelter {
 
         System.out.println("\nCage Waste Status: " + cage() + "% filled.");
         System.out.println("Litter Box Status: " + litterBox() + "% filled.");
+        System.out.println("Stable Status: " + stable() + "% filled.");
     }
 
     public void adoptPet(String choice) {
@@ -189,6 +190,33 @@ public class VirtualPetShelter {
         return litterBoxWaste;
     }
 
+    public int stable() {
+        int stableWaste = 0;
+
+        for (VirtualPet pet : shelter.values()) {
+            if (pet instanceof OrganicHorse) {
+                stableWaste += ((OrganicHorse) pet).getWaste();
+            }
+        }
+
+        if (stableWaste > 100) {
+            stableWaste = 100;
+        } else if (stableWaste < 0) {
+            stableWaste = 0;
+        }
+
+        if (stableWaste == 100) {
+            for (VirtualPet pet : shelter.values()) {
+                if (pet instanceof OrganicCat) {
+                    pet.decreaseHealth();
+                    pet.decreaseHappiness();
+                }
+            }
+        }
+
+        return stableWaste;
+    }
+
     public void cleanCages() {
         for (VirtualPet pet : shelter.values()) {
             if (pet instanceof OrganicDog) {
@@ -201,6 +229,14 @@ public class VirtualPetShelter {
         for (VirtualPet pet : shelter.values()) {
             if (pet instanceof OrganicCat) {
                 ((OrganicCat) pet).cleanWaste();
+            }
+        }
+    }
+
+    public void cleanStable() {
+        for (VirtualPet pet : shelter.values()) {
+            if (pet instanceof OrganicHorse) {
+                ((OrganicHorse) pet).cleanWaste();
             }
         }
     }

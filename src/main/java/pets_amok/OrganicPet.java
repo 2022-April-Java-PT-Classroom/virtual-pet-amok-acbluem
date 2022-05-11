@@ -53,7 +53,7 @@ public class OrganicPet extends VirtualPet {
     public void cleanWaste() {
         increaseHealth();
         increaseHappiness();
-        waste = 0;
+        waste = -5;
     }
 
     @Override
