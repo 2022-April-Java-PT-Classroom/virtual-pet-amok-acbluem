@@ -129,7 +129,7 @@ public class VirtualPetShelterApp {
 
                 shelter.tick();
             } else if (userChoice == 5) {
-                System.out.println("Are you surrendering a cat or a dog?");
+                System.out.println("Which of the following are you surrendering today?");
                 System.out.println("1. Cat");
                 System.out.println("2. Dog");
                 System.out.println("3. Horse");
