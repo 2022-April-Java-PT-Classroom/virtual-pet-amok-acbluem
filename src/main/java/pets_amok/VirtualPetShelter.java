@@ -23,25 +23,21 @@ public class VirtualPetShelter {
     }
 
     public void getShelter() {
-        System.out.printf("%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s %n", "Name", "Hunger", "Thirst", "Boredom", "Health", "Waste", "Oil Level", "Happiness");
-        System.out.println("----------|----------------------------------------------------------------------------");
+        System.out.printf("%-10s %-10s %-10s %-10s %-10s %-10s %-10s %n", "Name", "Hunger", "Thirst", "Boredom", "Health", "Oil Level", "Happiness");
+        System.out.println("----------|----------------------------------------------------------------");
 
         for (VirtualPet pet : shelter.values()) {
             if (pet instanceof OrganicPet) {
-                System.out.format("%-10s %-10d %-10d %-10d %-10d %-10d %-10s %-10d %n",
+                System.out.format("%-10s %-10d %-10d %-10d %-10d %-10s %-10d %n",
                         pet.getName(), ((OrganicPet) pet).getHunger(), ((OrganicPet) pet).getThirst(),
-                        ((OrganicPet) pet).getBoredom(), pet.getHealth(), ((OrganicPet) pet).getWaste(),
+                        ((OrganicPet) pet).getBoredom(), pet.getHealth(),
                         "X", pet.getHappiness());
             } else if (pet instanceof RoboticPet) {
-                System.out.format("%-10s %-10s %-10s %-10s %-10d %-10s %-10d %-10d %n",
-                        pet.getName(), "X", "X", "X", pet.getHealth(), "X",
+                System.out.format("%-10s %-10s %-10s %-10s %-10d %-10s %-10d %n",
+                        pet.getName(), "X", "X", "X", pet.getHealth(),
                         ((RoboticPet) pet).getOilLevel(), pet.getHappiness());
             }
         }
-
-        System.out.println("\nCage Waste Status: " + cage() + "% filled.");
-        System.out.println("Litter Box Status: " + litterBox() + "% filled.");
-        System.out.println("Stable Status: " + stable() + "% filled.");
     }
 
     public void adoptPet(String choice) {
@@ -55,6 +51,7 @@ public class VirtualPetShelter {
     }
 
     public void getPetNamesAndDescriptions() {
+        System.out.println("\nPet names and descriptions:");
         for (VirtualPet pet : shelter.values()) {
             System.out.println(pet.getName() + ": " + pet.getDescription());
         }
@@ -160,87 +157,6 @@ public class VirtualPetShelter {
                 System.out.println("This pet doesn't know what to do with this treat.\n");
             }
         }
-    }
-
-    public int cage() {
-        int cageWaste = 0;
-
-        for (VirtualPet pet : shelter.values()) {
-            if (pet instanceof OrganicDog) {
-                cageWaste += ((OrganicDog) pet).getWaste();
-            }
-        }
-
-        if (cageWaste > 100) {
-            cageWaste = 100;
-        } else if (cageWaste < 0) {
-            cageWaste = 0;
-        }
-
-        if (cageWaste == 100) {
-            for (VirtualPet pet : shelter.values()) {
-                if (pet instanceof OrganicDog) {
-                    pet.decreaseHealth(10);
-                    pet.decreaseHappiness(10);
-                }
-            }
-        }
-
-        return cageWaste;
-    }
-
-    public int litterBox() {
-        int litterBoxWaste = 0;
-
-        for (VirtualPet pet : shelter.values()) {
-            if (pet instanceof OrganicCat) {
-                litterBoxWaste += ((OrganicCat) pet).getWaste();
-            }
-        }
-
-        if (litterBoxWaste > 100) {
-            litterBoxWaste = 100;
-        } else if (litterBoxWaste < 0) {
-            litterBoxWaste = 0;
-        }
-
-        if (litterBoxWaste == 100) {
-            for (VirtualPet pet : shelter.values()) {
-                if (pet instanceof OrganicCat) {
-                    pet.decreaseHealth(10);
-                    pet.decreaseHappiness(10);
-                }
-            }
-        }
-
-        return litterBoxWaste;
-    }
-
-    public int stable() {
-        int stableWaste = 0;
-
-        for (VirtualPet pet : shelter.values()) {
-            if (pet instanceof OrganicHorse) {
-                stableWaste += ((OrganicHorse) pet).getWaste();
-            }
-        }
-
-        if (stableWaste > 100) {
-            stableWaste = 100;
-        } else if (stableWaste < 0) {
-            stableWaste = 0;
-        }
-
-        if (stableWaste == 100) {
-            for (VirtualPet pet : shelter.values()) {
-                if (pet instanceof OrganicCat) {
-                    pet.decreaseHealth(10);
-                    pet.decreaseHappiness(10);
-                }
-            }
-        }
-
-        return stableWaste;
     }
 
     public void cleanCages() {

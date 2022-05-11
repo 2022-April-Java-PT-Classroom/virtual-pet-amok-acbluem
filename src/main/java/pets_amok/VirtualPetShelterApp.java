@@ -5,10 +5,14 @@ import java.util.Scanner;
 public class VirtualPetShelterApp {
     public static void main(String[] args) {
         VirtualPetShelter shelter = new VirtualPetShelter();
+        Cage cage = new Cage();
+        LitterBox litterBox = new LitterBox();
+        Stable stable = new Stable();
+
         OrganicCat mrWiggles = new OrganicCat("Mr Wiggles", "A perpetually-drooling long-haired cat", 60, 70, 40, 90, 50, 80);
         RoboticCat doom = new RoboticCat("Doom", "A copper cat that's totally not planning to take over the world", 50, 100, 80);
         OrganicDog bubbles = new OrganicDog("Bubbles", "A very burpy but lovable poodle", 20, 30, 40, 50, 60, 70);
-        RoboticDog tank = new RoboticDog("Tank", "A platinum dog that appears to be standing guard", 30, 40, 50);
+        RoboticDog tank = new RoboticDog("Tank", "A shiny dog that has a heart of gold... literally", 30, 40, 50);
         OrganicHorse peanut = new OrganicHorse("Peanut", "A younger paint horse but full of spirit", 80, 60, 30, 30, 40, 50);
         RoboticHorse reaper = new RoboticHorse("Reaper", "A horse with a body and guts of steel", 20, 40, 50);
 
@@ -18,6 +22,11 @@ public class VirtualPetShelterApp {
         shelter.addPet(tank);
         shelter.addPet(peanut);
         shelter.addPet(reaper);
+
+        cage.addDog(bubbles);
+        litterBox.addCat(mrWiggles);
+        stable.addHorse(peanut);
+
 
         Scanner userInput = new Scanner(System.in);
         userInput.useDelimiter("\n");
@@ -31,7 +40,10 @@ public class VirtualPetShelterApp {
 
         do {
             shelter.getShelter();
-            System.out.println("\nPet descriptions:");
+            cage.getCage();
+            litterBox.getLitterBox();
+            stable.getStable();
+
             shelter.getPetNamesAndDescriptions();
 
             System.out.println("\nWhat would you like to do?");
@@ -97,7 +109,8 @@ public class VirtualPetShelterApp {
 
                 if (selection == 1) {
                     System.out.println("Which pet would you like to play with?");
-                    System.out.println("Please type the name exactly as it appears.");
+
+                    shelter.getPetNamesAndDescriptions();
 
                     String pet = userInput.next();
 
@@ -284,6 +297,7 @@ public class VirtualPetShelterApp {
                         }
 
                         shelter.addPet(newOrganicDog);
+                        cage.addDog(newOrganicDog);
                     } else if (type == 2) {
                         RoboticDog newRoboticDog;
 
