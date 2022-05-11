@@ -6,7 +6,7 @@ public class OrganicDog extends OrganicPet implements Dog {
     }
 
     public OrganicDog() {
-        super("Doofy", "A cross-eyed spotted dog.", 100, 50, 50, 50, 100, 100);
+        super("Doofy", "A cross-eyed spotted dog.", 100, 50, 50, 50, 100, 0);
     }
 
     @Override

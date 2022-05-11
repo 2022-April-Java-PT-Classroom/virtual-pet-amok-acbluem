@@ -27,6 +27,8 @@ public class VirtualPetShelterApp {
 
         do {
             shelter.getShelter();
+            System.out.println("");
+            shelter.getPetNamesAndDescriptions();
 
             System.out.println("\nWhat would you like to do?");
             System.out.println("1. Tend to multiple pets.");

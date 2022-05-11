@@ -6,7 +6,7 @@ public class OrganicCat extends OrganicPet implements Cat {
     }
 
     public OrganicCat() {
-        super("Snuggles", "An evil, fluffy cat.", 50, 50, 50, 50, 100, 100);
+        super("Snuggles", "An evil, fluffy cat.", 50, 50, 50, 50, 100, 0);
     }
 
     @Override
