@@ -139,7 +139,6 @@ public class OrganicPet extends VirtualPet {
 
         if (happiness < 0) {
             happiness = 0;
-            decreaseHealth(10);
         } else if (happiness > 100) {
             happiness = 100;
         }
