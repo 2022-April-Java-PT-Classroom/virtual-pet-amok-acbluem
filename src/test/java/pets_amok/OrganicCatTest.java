@@ -12,7 +12,7 @@ public class OrganicCatTest {
         test.herdCat();
         assertEquals(100, test.getBoredom());
         assertEquals(60, test.getHunger());
-        assertEquals(55, test.getHealth());
-        assertEquals(55, test.getHappiness());
+        assertEquals(70, test.getHealth());
+        assertEquals(70, test.getHappiness());
     }
 }

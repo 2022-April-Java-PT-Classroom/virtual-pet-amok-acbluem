@@ -12,6 +12,6 @@ public class RoboticCatTest {
         test.herdCat();
         assertEquals(40, test.getOilLevel());
         assertEquals(55, test.getHealth());
-        assertEquals(55, test.getHappiness());
+        assertEquals(70, test.getHappiness());
     }
 }

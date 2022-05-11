@@ -10,8 +10,8 @@ public class RoboticDogTest {
     @Test
     public void shouldWalkDogAndChangeStats() {
         test.walkDog();
-        assertEquals(40, test.getOilLevel());
+        assertEquals(35, test.getOilLevel());
         assertEquals(55, test.getHealth());
-        assertEquals(55, test.getHappiness());
+        assertEquals(70, test.getHappiness());
     }
 }

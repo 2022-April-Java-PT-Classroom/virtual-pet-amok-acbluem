@@ -112,7 +112,7 @@ public class VirtualPetShelterTest {
         assertEquals(100, testOrganicDog.getBoredom());
         assertEquals(45, testOrganicDog.getWaste());
 
-        assertEquals(40, testRoboticDog.getOilLevel());
+        assertEquals(35, testRoboticDog.getOilLevel());
     }
 
     @Test

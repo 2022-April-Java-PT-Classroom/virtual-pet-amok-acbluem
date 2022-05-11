@@ -40,6 +40,6 @@ public class RoboticPetTest {
         test.tick();
         test.tick();
         test.tick();
-        assertEquals(45, test.getHealth());
+        assertEquals(40, test.getHealth());
     }
 }

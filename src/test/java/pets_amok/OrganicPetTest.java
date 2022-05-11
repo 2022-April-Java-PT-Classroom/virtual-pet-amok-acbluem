@@ -31,32 +31,32 @@ public class OrganicPetTest {
     public void shouldFeedPetAndIncreaseHungerAndHealthAndHappinessAndWasteStats() {
         test.feedPet();
         assertEquals(100, test.getHunger());
-        assertEquals(55, test.getHealth());
-        assertEquals(55, test.getHappiness());
-        assertEquals(55, test.getWaste());
+        assertEquals(70, test.getHealth());
+        assertEquals(60, test.getHappiness());
+        assertEquals(50, test.getWaste());
     }
 
     @Test
     public void shouldWaterPetAndIncreaseThirstAndHealthAndHappinessAndWasteStats() {
         test.waterPet();
         assertEquals(100, test.getThirst());
-        assertEquals(55, test.getHealth());
-        assertEquals(55, test.getHappiness());
-        assertEquals(55, test.getWaste());
+        assertEquals(70, test.getHealth());
+        assertEquals(60, test.getHappiness());
+        assertEquals(50, test.getWaste());
     }
 
     @Test
     public void shouldPlayWithPetAndIncreaseBoredomAndHealthAndHappiness() {
         test.playPet();
         assertEquals(100, test.getBoredom());
-        assertEquals(55, test.getHealth());
-        assertEquals(55, test.getHappiness());
+        assertEquals(50, test.getHealth());
+        assertEquals(70, test.getHappiness());
     }
 
     @Test
     public void shouldCleanAllWasteOnPet() {
         test.cleanWaste();
-        assertEquals(0, test.getWaste());
+        assertEquals(-5, test.getWaste());
     }
 
     @Test
@@ -75,7 +75,7 @@ public class OrganicPetTest {
         test.feedPet();
         test.feedPet();
         test.tick();
-        assertEquals(85, test.getWaste());
+        assertEquals(75, test.getWaste());
     }
 
     @Test

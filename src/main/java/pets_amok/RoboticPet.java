@@ -19,8 +19,7 @@ public class RoboticPet extends VirtualPet {
     }
 
     public void fixPet() {
-        increaseHappiness(10);
-        increaseHealth(100);
+        health = 100;
     }
 
     public void increaseOilLevel(int amount) {
