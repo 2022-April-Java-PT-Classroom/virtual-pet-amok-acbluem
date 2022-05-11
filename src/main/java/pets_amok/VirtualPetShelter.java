@@ -76,14 +76,6 @@ public class VirtualPetShelter {
         }
     }
 
-    public void entertainPet(String choice) {
-        for (VirtualPet pet : shelter.values()) {
-            if (choice.equals(pet.getName()) && pet instanceof OrganicPet) {
-                ((OrganicPet) pet).playPet();
-            }
-        }
-    }
-
     public void oilPets() {
         for (VirtualPet pet : shelter.values()) {
             if (pet instanceof RoboticPet) {
@@ -132,6 +124,40 @@ public class VirtualPetShelter {
 
             if (pet instanceof RoboticHorse) {
                 ((RoboticHorse) pet).rideHorse();
+            }
+        }
+    }
+
+    public void entertainPet(String choice) {
+        for (VirtualPet pet : shelter.values()) {
+            if (choice.equals(pet.getName()) && pet instanceof OrganicPet) {
+                ((OrganicPet) pet).playPet();
+            }
+        }
+    }
+
+    public void giveTreat(String choice, String treat) {
+        for (VirtualPet pet : shelter.values()) {
+            if (choice.equals(pet.getName())) {
+                if (pet instanceof OrganicCat || pet instanceof OrganicDog) {
+                    if (treat.equals("Meat")) {
+                        ((OrganicPet) pet).feedTreat();
+                    } else if (treat.equals("Hay")) {
+                        pet.decreaseHappiness();
+                        System.out.println("Hay, that's not cool. This pet is not happy with this treat.\n");
+                    }
+                } else if (pet instanceof OrganicHorse) {
+                    if (treat.equals("Hay")) {
+                        ((OrganicPet) pet).feedTreat();
+                    } else if (treat.equals("Meat")) {
+                        pet.decreaseHappiness();
+                        System.out.println("This pet never wants to meat you again. This pet is not happy with this treat.\n");
+                    }
+                } else {
+                    System.out.println("Sorry, we don't have this treat in stock.\n");
+                }
+            } else {
+                System.out.println("This pet doesn't know what to do with this treat.\n");
             }
         }
     }

@@ -36,7 +36,7 @@ public class VirtualPetShelterApp {
 
             System.out.println("\nWhat would you like to do?");
             System.out.println("1. Tend to multiple pets.");
-            System.out.println("2. Play with one pet.");
+            System.out.println("2. Tend to one pet.");
             System.out.println("3. Clean the shelter.");
             System.out.println("4. Adopt a pet.");
             System.out.println("5. Surrender a pet.");
@@ -89,14 +89,36 @@ public class VirtualPetShelterApp {
                 }
 
             } else if (userChoice == 2) {
-                System.out.println("Which pet would you like to play with?");
-                System.out.println("Please type the name exactly as it appears.");
+                System.out.println("What would you like to do?");
+                System.out.println("1. Play with a pet.");
+                System.out.println("2. Give a pet a treat.");
 
-                shelter.getPetNamesAndDescriptions();
+                int selection = userInput.nextInt();
 
-                String selection = userInput.next();
+                if (selection == 1) {
+                    System.out.println("Which pet would you like to play with?");
+                    System.out.println("Please type the name exactly as it appears.");
 
-                shelter.entertainPet(selection);
+                    String pet = userInput.next();
+
+                    shelter.entertainPet(pet);
+                } else if (selection == 2) {
+                    System.out.println("Select a treat option:");
+                    System.out.println("Meat");
+                    System.out.println("Hay");
+
+                    userInput.nextLine();
+                    String treat = userInput.nextLine();
+
+                    System.out.println("Which pet would you like to give a treat?");
+                    System.out.println("Please type the name exactly as it appears.");
+
+                    String pet = userInput.nextLine();
+
+                    shelter.giveTreat(pet, treat);
+
+                    shelter.tick();
+                }
 
                 shelter.tick();
             } else if (userChoice == 3) {
@@ -182,8 +204,6 @@ public class VirtualPetShelterApp {
                         }
 
                         shelter.addPet(newOrganicCat);
-
-                        shelter.tick();
                     } else if (type == 2) {
                         RoboticCat newRoboticCat;
 
@@ -214,8 +234,6 @@ public class VirtualPetShelterApp {
                         }
 
                         shelter.addPet(newRoboticCat);
-
-                        shelter.tick();
                     } else {
                         System.out.println(errorMessage);
                     }
@@ -266,8 +284,6 @@ public class VirtualPetShelterApp {
                         }
 
                         shelter.addPet(newOrganicDog);
-
-                        shelter.tick();
                     } else if (type == 2) {
                         RoboticDog newRoboticDog;
 
@@ -298,8 +314,6 @@ public class VirtualPetShelterApp {
                         }
 
                         shelter.addPet(newRoboticDog);
-
-                        shelter.tick();
                     } else {
                         System.out.println(errorMessage);
                     }
@@ -350,8 +364,6 @@ public class VirtualPetShelterApp {
                         }
 
                         shelter.addPet(newOrganicHorse);
-
-                        shelter.tick();
                     } else if (type == 2) {
                         RoboticHorse newRoboticHorse;
 
@@ -382,12 +394,11 @@ public class VirtualPetShelterApp {
                         }
 
                         shelter.addPet(newRoboticHorse);
-
-                        shelter.tick();
                     } else {
                         System.out.println(errorMessage);
                     }
                 }
+                shelter.tick();
             } else if (userChoice == 6) {
                 System.out.println("Goodbye!");
             } else {
