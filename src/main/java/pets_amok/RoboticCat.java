@@ -6,7 +6,7 @@ public class RoboticCat extends RoboticPet implements Cat {
     }
 
     public RoboticCat() {
-        super("Mr. Doodles", "A metallic cat with a permanent angry face.", 50, 100, 50);
+        super("Mr Doodles", "A metallic cat with a permanent angry face.", 50, 100, 50);
     }
 
     @Override

@@ -58,6 +58,11 @@ public class OrganicPet extends VirtualPet {
 
     @Override
     public void tick() {
+        hunger -= 10;
+        thirst -= 10;
+        boredom -= 10;
+        waste += 5;
+
         if (hunger <= 0) {
             hunger = 0;
             decreaseHealth();
@@ -65,8 +70,6 @@ public class OrganicPet extends VirtualPet {
         } else if (hunger > 100) {
             hunger = 100;
             waste += 20;
-        } else {
-            hunger -= 10;
         }
 
         if (thirst <= 0) {
@@ -76,8 +79,6 @@ public class OrganicPet extends VirtualPet {
         } else if (thirst > 100) {
             thirst = 100;
             waste += 20;
-        } else {
-            thirst -= 10;
         }
 
         if (boredom <= 0) {
@@ -85,8 +86,6 @@ public class OrganicPet extends VirtualPet {
             decreaseHappiness();
         } else if (boredom > 100) {
             boredom = 100;
-        } else {
-            boredom -= 10;
         }
 
         if (waste <= 0) {
@@ -95,8 +94,6 @@ public class OrganicPet extends VirtualPet {
             waste = 100;
             decreaseHealth();
             decreaseHappiness();
-        } else {
-            waste += 5;
         }
 
         if (health <= 0) {
@@ -104,6 +101,12 @@ public class OrganicPet extends VirtualPet {
             decreaseHappiness();
         } else if (health > 100) {
             health = 100;
+        }
+
+        if (happiness < 0) {
+            happiness = 0;
+        } else if (happiness > 100) {
+            happiness = 100;
         }
     }
 }

@@ -25,13 +25,13 @@ public class RoboticPet extends VirtualPet {
 
     @Override
     public void tick() {
+        oilLevel -= 10;
+
         if (oilLevel <= 0) {
             oilLevel = 0;
             decreaseHealth();
         } else if (oilLevel > 100) {
             oilLevel = 100;
-        } else {
-            oilLevel -= 10;
         }
 
         if (health <= 0) {
@@ -39,6 +39,12 @@ public class RoboticPet extends VirtualPet {
             decreaseHappiness();
         } else if (health > 100) {
             health = 100;
+        }
+
+        if (happiness < 0) {
+            happiness = 0;
+        } else if (happiness > 100) {
+            happiness = 100;
         }
     }
 }

@@ -123,6 +123,18 @@ public class VirtualPetShelter {
         }
     }
 
+    public void rideHorses() {
+        for (VirtualPet pet : shelter.values()) {
+            if (pet instanceof OrganicHorse) {
+                ((OrganicHorse) pet).rideHorse();
+            }
+
+            if (pet instanceof RoboticHorse) {
+                ((RoboticHorse) pet).rideHorse();
+            }
+        }
+    }
+
     public int cage() {
         int cageWaste = 0;
 

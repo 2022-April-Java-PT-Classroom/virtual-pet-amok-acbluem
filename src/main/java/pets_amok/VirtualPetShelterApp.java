@@ -9,11 +9,15 @@ public class VirtualPetShelterApp {
         RoboticCat doom = new RoboticCat("Doom", "A copper cat that's totally not planning to take over the world", 50, 100, 80);
         OrganicDog bubbles = new OrganicDog("Bubbles", "A very burpy but lovable poodle", 20, 30, 40, 50, 60, 70);
         RoboticDog tank = new RoboticDog("Tank", "A platinum dog that appears to be standing guard", 30, 40, 50);
+        OrganicHorse peanut = new OrganicHorse("Peanut", "A younger paint horse but full of spirit", 80, 60, 30, 30, 40, 50);
+        RoboticHorse reaper = new RoboticHorse("Reaper", "A horse with a body and guts of steel", 20, 40, 50);
 
         shelter.addPet(mrWiggles);
         shelter.addPet(doom);
         shelter.addPet(bubbles);
         shelter.addPet(tank);
+        shelter.addPet(peanut);
+        shelter.addPet(reaper);
 
         Scanner userInput = new Scanner(System.in);
         userInput.useDelimiter("\n");
@@ -27,7 +31,7 @@ public class VirtualPetShelterApp {
 
         do {
             shelter.getShelter();
-            System.out.println("");
+            System.out.println("\nPet descriptions:");
             shelter.getPetNamesAndDescriptions();
 
             System.out.println("\nWhat would you like to do?");
@@ -48,6 +52,7 @@ public class VirtualPetShelterApp {
                 System.out.println("4. Fix all robotic pets.");
                 System.out.println("5. Walk all dogs.");
                 System.out.println("6. Herd all cats.");
+                System.out.println("7. Ride all the horses.");
 
                 int selection = userInput.nextInt();
 
@@ -74,6 +79,10 @@ public class VirtualPetShelterApp {
                 } else if (selection == 6) {
                     shelter.herdCats();
                     System.out.println("You somehow manage to herd all the cats.");
+                    shelter.tick();
+                } else if (selection == 7) {
+                    shelter.rideHorses();
+                    System.out.println("Your bum hurts, but you ride all the horses.");
                     shelter.tick();
                 } else {
                     System.out.println(errorMessage);
@@ -120,6 +129,7 @@ public class VirtualPetShelterApp {
                 System.out.println("Are you surrendering a cat or a dog?");
                 System.out.println("1. Cat");
                 System.out.println("2. Dog");
+                System.out.println("3. Horse");
 
                 int selection = userInput.nextInt();
 
@@ -290,14 +300,97 @@ public class VirtualPetShelterApp {
                     } else {
                         System.out.println(errorMessage);
                     }
-                } else {
-                    System.out.println(errorMessage);
+                } else if (selection == 3) {
+                    System.out.println("Are you surrendering an organic or robotic horse?");
+                    System.out.println("1. Organic");
+                    System.out.println("2. Robotic");
+
+                    int type = userInput.nextInt();
+
+                    if (type == 1) {
+                        OrganicHorse newOrganicHorse;
+
+                        System.out.println("Please enter the following details to surrender an organic horse:");
+                        System.out.println("(alternatively, you may hit enter to surrender the default organic horse)\n");
+                        System.out.println("Name:");
+
+                        userInput.nextLine();
+                        String petName = userInput.nextLine();
+
+                        if (petName.equals("")) {
+                            newOrganicHorse = new OrganicHorse();
+                        } else {
+                            System.out.println("Description:");
+                            String petDescription = userInput.nextLine();
+
+                            System.out.println("Happiness (number):");
+                            int petHappiness = userInput.nextInt();
+
+                            System.out.println("Hunger Level (number):");
+                            int petHunger = userInput.nextInt();
+
+                            System.out.println("Thirst Level (number):");
+                            int petThirst = userInput.nextInt();
+                            userInput.nextLine();
+
+                            System.out.println("Boredom Level (number):");
+                            int petBoredom = userInput.nextInt();
+
+                            System.out.println("Health Level (number):");
+                            int petHealth = userInput.nextInt();
+
+                            System.out.println("Waste Level (number)");
+                            int petWaste = userInput.nextInt();
+                            userInput.nextLine();
+
+                            newOrganicHorse = new OrganicHorse(petName, petDescription, petHappiness, petHunger, petThirst, petBoredom, petHealth, petWaste);
+                        }
+
+                        shelter.addPet(newOrganicHorse);
+
+                        shelter.tick();
+                    } else if (type == 2) {
+                        RoboticHorse newRoboticHorse;
+
+                        System.out.println("Please enter the following details to surrender a robotic horse:");
+                        System.out.println("(alternatively, you may hit enter to surrender the default organic horse)\n");
+                        System.out.println("Name:");
+
+                        userInput.nextLine();
+                        String petName = userInput.nextLine();
+
+                        if (petName.equals("")) {
+                            newRoboticHorse = new RoboticHorse();
+                        } else {
+                            System.out.println("Description:");
+                            String petDescription = userInput.nextLine();
+
+                            System.out.println("Happiness (number):");
+                            int petHappiness = userInput.nextInt();
+
+                            System.out.println("Health Level (number):");
+                            int petHealth = userInput.nextInt();
+
+                            System.out.println("Oil Level (number)");
+                            int petOilLevel = userInput.nextInt();
+                            userInput.nextLine();
+
+                            newRoboticHorse = new RoboticHorse(petName, petDescription, petHappiness, petHealth, petOilLevel);
+                        }
+
+                        shelter.addPet(newRoboticHorse);
+
+                        shelter.tick();
+                    } else {
+                        System.out.println(errorMessage);
+                    }
                 }
             } else if (userChoice == 6) {
                 System.out.println("Goodbye!");
             } else {
                 System.out.println(errorMessage);
             }
-        } while (userChoice != 6);
+        }
+        while (userChoice != 6);
     }
 }
