@@ -11,12 +11,12 @@ public class OrganicHorse extends OrganicPet implements Horse {
 
     @Override
     public void rideHorse() {
-        boredom += 50;
-        thirst -= 10;
+        increaseBoredom(50);
+        decreaseThirst(10);
         if (waste % 10 == 0) {
-            waste -= 5;
+            decreaseWaste(5);
         }
-        increaseHealth();
-        increaseHappiness();
+        increaseHealth(20);
+        increaseHappiness(30);
     }
 }

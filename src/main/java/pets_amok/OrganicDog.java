@@ -11,11 +11,11 @@ public class OrganicDog extends OrganicPet implements Dog {
 
     @Override
     public void walkDog() {
-        boredom += 50;
+        increaseBoredom(50);
         if (waste % 10 == 0) {
-            waste -= 5;
+            decreaseWaste(5);
         }
-        increaseHealth();
-        increaseHappiness();
+        increaseHealth(20);
+        increaseHappiness(25);
     }
 }

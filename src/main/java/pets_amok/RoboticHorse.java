@@ -11,7 +11,7 @@ public class RoboticHorse extends RoboticPet implements Horse {
 
     @Override
     public void rideHorse() {
-        oilLevel -= 20;
-        increaseHappiness();
+        decreaseOilLevel(20);
+        increaseHappiness(20);
     }
 }

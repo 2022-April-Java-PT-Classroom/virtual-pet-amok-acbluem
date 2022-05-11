@@ -11,8 +11,8 @@ public class RoboticCat extends RoboticPet implements Cat {
 
     @Override
     public void herdCat() {
-        oilLevel -= 10;
-        increaseHealth();
-        increaseHappiness();
+        decreaseOilLevel(10);
+        increaseHealth(5);
+        increaseHappiness(20);
     }
 }

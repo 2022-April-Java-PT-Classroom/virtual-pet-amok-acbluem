@@ -11,9 +11,9 @@ public class OrganicCat extends OrganicPet implements Cat {
 
     @Override
     public void herdCat() {
-        boredom += 50;
-        hunger += 10;
-        increaseHealth();
-        increaseHappiness();
+        increaseBoredom(50);
+        increaseHunger(10);
+        increaseHealth(20);
+        increaseHappiness(20);
     }
 }

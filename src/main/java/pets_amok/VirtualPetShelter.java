@@ -136,21 +136,21 @@ public class VirtualPetShelter {
         }
     }
 
-    public void giveTreat(String choice, String treat) {
+    public void giveTreat(String petChoice, String treat) {
         for (VirtualPet pet : shelter.values()) {
-            if (choice.equals(pet.getName())) {
+            if (petChoice.equals(pet.getName())) {
                 if (pet instanceof OrganicCat || pet instanceof OrganicDog) {
                     if (treat.equals("Meat")) {
                         ((OrganicPet) pet).feedTreat();
                     } else if (treat.equals("Hay")) {
-                        pet.decreaseHappiness();
+                        pet.decreaseHappiness(50);
                         System.out.println("Hay, that's not cool. This pet is not happy with this treat.\n");
                     }
                 } else if (pet instanceof OrganicHorse) {
                     if (treat.equals("Hay")) {
                         ((OrganicPet) pet).feedTreat();
                     } else if (treat.equals("Meat")) {
-                        pet.decreaseHappiness();
+                        pet.decreaseHappiness(50);
                         System.out.println("This pet never wants to meat you again. This pet is not happy with this treat.\n");
                     }
                 } else {
@@ -180,8 +180,8 @@ public class VirtualPetShelter {
         if (cageWaste == 100) {
             for (VirtualPet pet : shelter.values()) {
                 if (pet instanceof OrganicDog) {
-                    pet.decreaseHealth();
-                    pet.decreaseHappiness();
+                    pet.decreaseHealth(10);
+                    pet.decreaseHappiness(10);
                 }
             }
         }
@@ -207,8 +207,8 @@ public class VirtualPetShelter {
         if (litterBoxWaste == 100) {
             for (VirtualPet pet : shelter.values()) {
                 if (pet instanceof OrganicCat) {
-                    pet.decreaseHealth();
-                    pet.decreaseHappiness();
+                    pet.decreaseHealth(10);
+                    pet.decreaseHappiness(10);
                 }
             }
         }
@@ -234,8 +234,8 @@ public class VirtualPetShelter {
         if (stableWaste == 100) {
             for (VirtualPet pet : shelter.values()) {
                 if (pet instanceof OrganicCat) {
-                    pet.decreaseHealth();
-                    pet.decreaseHappiness();
+                    pet.decreaseHealth(10);
+                    pet.decreaseHappiness(10);
                 }
             }
         }

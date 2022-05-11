@@ -31,62 +31,93 @@ public class OrganicPet extends VirtualPet {
     }
 
     public void feedPet() {
-        hunger += 50;
-        increaseHealth();
-        increaseHappiness();
+        increaseHunger(50);
+        increaseHealth(20);
+        increaseHappiness(10);
     }
 
     public void feedTreat() {
-        hunger += 20;
-        increaseHappiness();
+        increaseHunger(20);
+        increaseHappiness(10);
     }
 
     public void waterPet() {
-        thirst += 50;
-        increaseHealth();
-        increaseHappiness();
+        increaseThirst(50);
+        increaseHealth(20);
+        increaseHappiness(10);
     }
 
     public void playPet() {
-        boredom += 50;
-        increaseHealth();
-        increaseHappiness();
+        increaseBoredom(50);
+        increaseHappiness(20);
     }
 
     public void cleanWaste() {
-        increaseHealth();
-        increaseHappiness();
+        increaseHealth(50);
+        increaseHappiness(20);
         waste = -5;
+    }
+
+    public void increaseHunger(int amount) {
+        hunger += amount;
+    }
+
+    public void increaseThirst(int amount) {
+        thirst += amount;
+    }
+
+    public void increaseBoredom(int amount) {
+        boredom += amount;
+    }
+
+    public void decreaseWaste(int amount) {
+        waste -= amount;
+    }
+
+    public void decreaseHunger(int amount) {
+        hunger -= amount;
+    }
+
+    public void decreaseThirst(int amount) {
+        thirst -= amount;
+    }
+
+    public void decreaseBoredom(int amount) {
+        boredom -= amount;
+    }
+
+    public void increaseWaste(int amount) {
+        waste += amount;
     }
 
     @Override
     public void tick() {
-        hunger -= 10;
-        thirst -= 10;
-        boredom -= 10;
-        waste += 5;
+        decreaseHunger(10);
+        decreaseThirst(10);
+        decreaseBoredom(10);
+        increaseWaste(5);
 
         if (hunger <= 0) {
             hunger = 0;
-            decreaseHealth();
-            decreaseHappiness();
+            decreaseHealth(5);
+            decreaseHappiness(5);
         } else if (hunger > 100) {
             hunger = 100;
-            waste += 20;
+            increaseWaste(20);
         }
 
         if (thirst <= 0) {
             thirst = 0;
-            decreaseHealth();
-            decreaseHappiness();
+            decreaseHealth(5);
+            decreaseHappiness(5);
         } else if (thirst > 100) {
             thirst = 100;
-            waste += 20;
+            increaseWaste(20);
         }
 
         if (boredom <= 0) {
             boredom = 0;
-            decreaseHappiness();
+            decreaseHappiness(10);
         } else if (boredom > 100) {
             boredom = 100;
         }
@@ -95,19 +126,20 @@ public class OrganicPet extends VirtualPet {
             waste = 0;
         } else if (waste > 100) {
             waste = 100;
-            decreaseHealth();
-            decreaseHappiness();
+            decreaseHealth(20);
+            decreaseHappiness(20);
         }
 
         if (health <= 0) {
             health = 0;
-            decreaseHappiness();
+            decreaseHappiness(10);
         } else if (health > 100) {
             health = 100;
         }
 
         if (happiness < 0) {
             happiness = 0;
+            decreaseHealth(10);
         } else if (happiness > 100) {
             happiness = 100;
         }

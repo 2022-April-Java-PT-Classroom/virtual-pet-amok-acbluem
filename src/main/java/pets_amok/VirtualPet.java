@@ -29,20 +29,20 @@ public abstract class VirtualPet {
         return health;
     }
 
-    public void increaseHealth() {
-        this.health += 5;
+    public void increaseHealth(int amount) {
+        health += amount;
     }
 
-    public void decreaseHealth() {
-        this.health -= 5;
+    public void decreaseHealth(int amount) {
+        health -= amount;
     }
 
-    public void increaseHappiness() {
-        this.happiness += 5;
+    public void increaseHappiness(int amount) {
+        happiness += amount;
     }
 
-    public void decreaseHappiness() {
-        this.happiness -= 5;
+    public void decreaseHappiness(int amount) {
+        happiness -= amount;
     }
 
     public abstract void tick();

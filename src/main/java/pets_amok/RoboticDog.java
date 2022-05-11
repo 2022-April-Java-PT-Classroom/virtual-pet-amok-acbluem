@@ -11,8 +11,8 @@ public class RoboticDog extends RoboticPet implements Dog {
 
     @Override
     public void walkDog() {
-        oilLevel -= 10;
-        increaseHealth();
-        increaseHappiness();
+        decreaseOilLevel(15);
+        increaseHealth(5);
+        increaseHappiness(20);
     }
 }

@@ -133,7 +133,7 @@ public class VirtualPetShelterApp {
                     shelter.cleanCages();
                 } else if (selection == 2) {
                     shelter.cleanLitterBox();
-                }else if (selection == 3) {
+                } else if (selection == 3) {
                     shelter.cleanStable();
                 } else {
                     System.out.println(errorMessage);
