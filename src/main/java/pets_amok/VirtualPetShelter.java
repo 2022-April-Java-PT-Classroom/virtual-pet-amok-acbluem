@@ -138,6 +138,15 @@ public class VirtualPetShelter {
             cageWaste = 0;
         }
 
+        if (cageWaste == 100) {
+            for (VirtualPet pet : shelter.values()) {
+                if (pet instanceof OrganicDog || pet instanceof RoboticDog) {
+                    pet.decreaseHealth();
+                    pet.decreaseHappiness();
+                }
+            }
+        }
+
         return cageWaste;
     }
 
