@@ -58,3 +58,13 @@ Surrendering a pet became a longer process due to the increased specificity need
 
 Test Driven Development was done on all classes except for VirtualPet, Cat, Dog, and VirtualPetShelterApp.
 Any methods that did not test for equality were instead used to see the output.
+
+Added classes
+
+- Organic/Robotic Horse classes, function similarly to the cat/dog ones
+- Horse interface class, also similar to Dog/Cat interface classes
+- Cage/LitterBox/Stable classes that have their own hashmap of pets and their waste values
+
+Added new methods
+
+- Treat method under VPS class, meat for dogs/cats and hay for horses (feeding the opposite will decrease happiness)
