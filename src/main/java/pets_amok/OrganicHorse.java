@@ -13,7 +13,7 @@ public class OrganicHorse extends OrganicPet implements Horse {
     public void rideHorse() {
         increaseBoredom(50);
         decreaseThirst(10);
-        if (waste % 10 == 0) {
+        if (waste % 2 == 0) {
             decreaseWaste(5);
         }
         increaseHealth(20);
