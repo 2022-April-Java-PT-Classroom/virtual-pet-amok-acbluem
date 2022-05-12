@@ -13,7 +13,7 @@ public class RoboticPet extends VirtualPet {
     }
 
     public void oilPet() {
-        increaseOilLevel(50);
+        increaseOilLevel(100);
         increaseHealth(5);
         increaseHappiness(5);
     }

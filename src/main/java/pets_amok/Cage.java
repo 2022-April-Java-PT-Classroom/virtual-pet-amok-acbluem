@@ -13,6 +13,15 @@ public class Cage {
         cage.put(dog, dog.getWaste());
     }
 
+
+    public void removeDog(String dogToRemove) {
+        for (OrganicDog dog : cage.keySet()) {
+            if (dogToRemove.equals(dog.getName())) {
+                cage.remove(dog);
+            }
+        }
+    }
+
     public void getCage() {
         System.out.println("\nCage Waste Levels:");
         System.out.printf("%-10s %-10s %n", "Name", "Waste");

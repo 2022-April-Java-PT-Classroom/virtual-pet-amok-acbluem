@@ -13,6 +13,14 @@ public class Stable {
         stable.put(horse, horse.getWaste());
     }
 
+    public void removeHorse(String horseToRemove) {
+        for (OrganicHorse horse : stable.keySet()) {
+            if (horseToRemove.equals(horse.getName())) {
+                stable.remove(horse);
+            }
+        }
+    }
+
     public void getStable() {
         System.out.println("\nStable Waste Levels:");
         System.out.printf("%-10s %-10s %n", "Name", "Waste");

@@ -13,6 +13,14 @@ public class LitterBox {
         litterBox.put(cat, cat.getWaste());
     }
 
+    public void removeCat(String catToRemove) {
+        for (OrganicCat cat : litterBox.keySet()) {
+            if (catToRemove.equals(cat.getName())) {
+                litterBox.remove(cat);
+            }
+        }
+    }
+
     public void getLitterBox() {
         System.out.println("\nLitter Box Waste Levels:");
         System.out.printf("%-10s %-10s %n", "Name", "Waste");

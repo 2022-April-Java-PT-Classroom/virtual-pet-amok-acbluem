@@ -153,256 +153,111 @@ public class VirtualPetShelterApp {
 
                 shelter.adoptPet(petChoice);
 
+                cage.removeDog(petChoice);
+                litterBox.removeCat(petChoice);
+                stable.removeHorse(petChoice);
+
                 shelter.tick();
             } else if (userChoice == 5) {
                 System.out.println("Which of the following are you surrendering today?");
                 System.out.println("1. Cat");
                 System.out.println("2. Dog");
                 System.out.println("3. Horse");
+                int species = userInput.nextInt();
 
-                int selection = userInput.nextInt();
+                System.out.println("Are you surrendering an organic or robotic cat?");
+                System.out.println("1. Organic");
+                System.out.println("2. Robotic");
+                int type = userInput.nextInt();
 
-                if (selection == 1) {
-                    System.out.println("Are you surrendering an organic or robotic cat?");
-                    System.out.println("1. Organic");
-                    System.out.println("2. Robotic");
+                System.out.println("Name (or hit enter for a default pet):");
+                userInput.nextLine();
+                String petName = userInput.nextLine();
 
-                    int type = userInput.nextInt();
-
+                if (petName.equals("")) {
                     if (type == 1) {
-                        OrganicCat newOrganicCat;
-                        System.out.println("Please enter the following details to surrender an organic cat:");
-                        System.out.println("(alternatively, you may hit enter to surrender the default organic cat)\n");
-                        System.out.println("Name:");
-
-                        userInput.nextLine();
-                        String petName = userInput.nextLine();
-
-                        if (petName.equals("")) {
-                            newOrganicCat = new OrganicCat();
-                        } else {
-                            System.out.println("Description:");
-                            String petDescription = userInput.nextLine();
-
-                            System.out.println("Happiness (number):");
-                            int petHappiness = userInput.nextInt();
-
-                            System.out.println("Hunger Level (number):");
-                            int petHunger = userInput.nextInt();
-
-                            System.out.println("Thirst Level (number):");
-                            int petThirst = userInput.nextInt();
-                            userInput.nextLine();
-
-                            System.out.println("Boredom Level (number):");
-                            int petBoredom = userInput.nextInt();
-
-                            System.out.println("Health Level (number):");
-                            int petHealth = userInput.nextInt();
-
-                            System.out.println("Waste Level (number)");
-                            int petWaste = userInput.nextInt();
-                            userInput.nextLine();
-
-                            newOrganicCat = new OrganicCat(petName, petDescription, petHappiness, petHunger, petThirst, petBoredom, petHealth, petWaste);
+                        if (species == 1) {
+                            OrganicCat newOrganicCat = new OrganicCat();
+                            shelter.addPet(newOrganicCat);
+                            litterBox.addCat(newOrganicCat);
+                        } else if (species == 2) {
+                            OrganicDog newOrganicDog = new OrganicDog();
+                            shelter.addPet(newOrganicDog);
+                            cage.addDog(newOrganicDog);
+                        } else if (species == 3) {
+                            OrganicHorse newOrganicHorse = new OrganicHorse();
+                            shelter.addPet(newOrganicHorse);
+                            stable.addHorse(newOrganicHorse);
                         }
-
-                        shelter.addPet(newOrganicCat);
-                        litterBox.addCat((newOrganicCat));
                     } else if (type == 2) {
-                        RoboticCat newRoboticCat;
-
-                        System.out.println("Please enter the following details to surrender a robotic cat:");
-                        System.out.println("(alternatively, you may hit enter to surrender the default organic cat)\n");
-                        System.out.println("Name:");
-
-                        userInput.nextLine();
-                        String petName = userInput.nextLine();
-
-                        if (petName.equals("")) {
-                            newRoboticCat = new RoboticCat();
-                        } else {
-                            System.out.println("Description:");
-                            String petDescription = userInput.nextLine();
-
-                            System.out.println("Happiness (number):");
-                            int petHappiness = userInput.nextInt();
-
-                            System.out.println("Health Level (number):");
-                            int petHealth = userInput.nextInt();
-
-                            System.out.println("Oil Level (number)");
-                            int petOilLevel = userInput.nextInt();
-                            userInput.nextLine();
-
-                            newRoboticCat = new RoboticCat(petName, petDescription, petHappiness, petHealth, petOilLevel);
+                        if (species == 1) {
+                            RoboticCat newRoboticCat = new RoboticCat();
+                            shelter.addPet(newRoboticCat);
+                        } else if (species == 2) {
+                            RoboticDog newRoboticDog = new RoboticDog();
+                            shelter.addPet(newRoboticDog);
+                        } else if (species == 3) {
+                            RoboticHorse newRoboticHorse = new RoboticHorse();
+                            shelter.addPet(newRoboticHorse);
                         }
-
-                        shelter.addPet(newRoboticCat);
-                    } else {
-                        System.out.println(errorMessage);
                     }
-                } else if (selection == 2) {
-                    System.out.println("Are you surrendering an organic or robotic dog?");
-                    System.out.println("1. Organic");
-                    System.out.println("2. Robotic");
+                } else {
+                    System.out.println("Description:");
+                    String petDescription = userInput.nextLine();
 
-                    int type = userInput.nextInt();
+                    System.out.println("Happiness (number):");
+                    int petHappiness = userInput.nextInt();
 
-                    if (type == 1) {
-                        OrganicDog newOrganicDog;
-
-                        System.out.println("Please enter the following details to surrender an organic dog:");
-                        System.out.println("(alternatively, you may hit enter to surrender the default organic dog)\n");
-                        System.out.println("Name:");
-
-                        userInput.nextLine();
-                        String petName = userInput.nextLine();
-
-                        if (petName.equals("")) {
-                            newOrganicDog = new OrganicDog();
-                        } else {
-                            System.out.println("Description:");
-                            String petDescription = userInput.nextLine();
-
-                            System.out.println("Happiness (number):");
-                            int petHappiness = userInput.nextInt();
-
-                            System.out.println("Hunger Level (number):");
-                            int petHunger = userInput.nextInt();
-
-                            System.out.println("Thirst Level (number):");
-                            int petThirst = userInput.nextInt();
-                            userInput.nextLine();
-
-                            System.out.println("Boredom Level (number):");
-                            int petBoredom = userInput.nextInt();
-
-                            System.out.println("Health Level (number):");
-                            int petHealth = userInput.nextInt();
-
-                            System.out.println("Waste Level (number)");
-                            int petWaste = userInput.nextInt();
-                            userInput.nextLine();
-
-                            newOrganicDog = new OrganicDog(petName, petDescription, petHappiness, petHunger, petThirst, petBoredom, petHealth, petWaste);
-                        }
-
-                        shelter.addPet(newOrganicDog);
-                        cage.addDog(newOrganicDog);
-                    } else if (type == 2) {
-                        RoboticDog newRoboticDog;
-
-                        System.out.println("Please enter the following details to surrender a robotic dog:");
-                        System.out.println("(alternatively, you may hit enter to surrender the default organic dog)\n");
-                        System.out.println("Name:");
-
-                        userInput.nextLine();
-                        String petName = userInput.nextLine();
-
-                        if (petName.equals("")) {
-                            newRoboticDog = new RoboticDog();
-                        } else {
-                            System.out.println("Description:");
-                            String petDescription = userInput.nextLine();
-
-                            System.out.println("Happiness (number):");
-                            int petHappiness = userInput.nextInt();
-
-                            System.out.println("Health Level (number):");
-                            int petHealth = userInput.nextInt();
-
-                            System.out.println("Oil Level (number)");
-                            int petOilLevel = userInput.nextInt();
-                            userInput.nextLine();
-
-                            newRoboticDog = new RoboticDog(petName, petDescription, petHappiness, petHealth, petOilLevel);
-                        }
-
-                        shelter.addPet(newRoboticDog);
-                    } else {
-                        System.out.println(errorMessage);
-                    }
-                } else if (selection == 3) {
-                    System.out.println("Are you surrendering an organic or robotic horse?");
-                    System.out.println("1. Organic");
-                    System.out.println("2. Robotic");
-
-                    int type = userInput.nextInt();
+                    System.out.println("Health Level (number):");
+                    int petHealth = userInput.nextInt();
 
                     if (type == 1) {
-                        OrganicHorse newOrganicHorse;
+                        System.out.println("Hunger Level (number):");
+                        int petHunger = userInput.nextInt();
 
-                        System.out.println("Please enter the following details to surrender an organic horse:");
-                        System.out.println("(alternatively, you may hit enter to surrender the default organic horse)\n");
-                        System.out.println("Name:");
+                        System.out.println("Thirst Level (number):");
+                        int petThirst = userInput.nextInt();
 
+                        System.out.println("Boredom Level (number):");
+                        int petBoredom = userInput.nextInt();
+
+                        System.out.println("Waste Level (number):");
+                        int petWaste = userInput.nextInt();
                         userInput.nextLine();
-                        String petName = userInput.nextLine();
 
-                        if (petName.equals("")) {
-                            newOrganicHorse = new OrganicHorse();
+                        if (species == 1) {
+                            OrganicCat newOrganicCat = new OrganicCat(petName, petDescription, petHappiness, petHunger, petThirst, petBoredom, petHealth, petWaste);
+                            shelter.addPet(newOrganicCat);
+                            litterBox.addCat(newOrganicCat);
+                        } else if (species == 2) {
+                            OrganicDog newOrganicDog = new OrganicDog(petName, petDescription, petHappiness, petHunger, petThirst, petBoredom, petHealth, petWaste);
+                            shelter.addPet(newOrganicDog);
+                            cage.addDog(newOrganicDog);
+                        } else if (species == 3) {
+                            OrganicHorse newOrganicHorse = new OrganicHorse(petName, petDescription, petHappiness, petHunger, petThirst, petBoredom, petHealth, petWaste);
+                            shelter.addPet(newOrganicHorse);
+                            stable.addHorse(newOrganicHorse);
                         } else {
-                            System.out.println("Description:");
-                            String petDescription = userInput.nextLine();
-
-                            System.out.println("Happiness (number):");
-                            int petHappiness = userInput.nextInt();
-
-                            System.out.println("Hunger Level (number):");
-                            int petHunger = userInput.nextInt();
-
-                            System.out.println("Thirst Level (number):");
-                            int petThirst = userInput.nextInt();
-                            userInput.nextLine();
-
-                            System.out.println("Boredom Level (number):");
-                            int petBoredom = userInput.nextInt();
-
-                            System.out.println("Health Level (number):");
-                            int petHealth = userInput.nextInt();
-
-                            System.out.println("Waste Level (number)");
-                            int petWaste = userInput.nextInt();
-                            userInput.nextLine();
-
-                            newOrganicHorse = new OrganicHorse(petName, petDescription, petHappiness, petHunger, petThirst, petBoredom, petHealth, petWaste);
+                            System.out.println("We do not allow this organic species here.");
                         }
-
-                        shelter.addPet(newOrganicHorse);
-                        stable.addHorse(newOrganicHorse);
                     } else if (type == 2) {
-                        RoboticHorse newRoboticHorse;
+                        System.out.println("Oil Level (number)");
+                        int petOilLevel = userInput.nextInt();
 
-                        System.out.println("Please enter the following details to surrender a robotic horse:");
-                        System.out.println("(alternatively, you may hit enter to surrender the default organic horse)\n");
-                        System.out.println("Name:");
-
-                        userInput.nextLine();
-                        String petName = userInput.nextLine();
-
-                        if (petName.equals("")) {
-                            newRoboticHorse = new RoboticHorse();
+                        if (species == 1) {
+                            RoboticCat newRoboticCat = new RoboticCat(petName, petDescription, petHappiness, petHealth, petOilLevel);
+                            shelter.addPet(newRoboticCat);
+                        } else if (species == 2) {
+                            RoboticDog newRoboticDog = new RoboticDog(petName, petDescription, petHappiness, petHealth, petOilLevel);
+                            shelter.addPet(newRoboticDog);
+                        } else if (species == 3) {
+                            RoboticHorse newRoboticHorse = new RoboticHorse(petName, petDescription, petHappiness, petHealth, petOilLevel);
+                            shelter.addPet(newRoboticHorse);
                         } else {
-                            System.out.println("Description:");
-                            String petDescription = userInput.nextLine();
-
-                            System.out.println("Happiness (number):");
-                            int petHappiness = userInput.nextInt();
-
-                            System.out.println("Health Level (number):");
-                            int petHealth = userInput.nextInt();
-
-                            System.out.println("Oil Level (number)");
-                            int petOilLevel = userInput.nextInt();
-                            userInput.nextLine();
-
-                            newRoboticHorse = new RoboticHorse(petName, petDescription, petHappiness, petHealth, petOilLevel);
+                            System.out.println("We do not allow this robotic species here.");
                         }
-
-                        shelter.addPet(newRoboticHorse);
                     } else {
-                        System.out.println(errorMessage);
+                        System.out.println("We do not allow this type here.");
                     }
                 }
                 shelter.tick();
