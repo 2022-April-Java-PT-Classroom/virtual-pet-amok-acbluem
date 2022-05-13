@@ -30,25 +30,25 @@ public class OrganicPetTest {
     @Test
     public void shouldFeedPetAndIncreaseHungerAndHealthAndHappinessAndWasteStats() {
         test.feedPet();
-        assertEquals(100, test.getHunger());
+        assertEquals(150, test.getHunger());
         assertEquals(70, test.getHealth());
-        assertEquals(60, test.getHappiness());
+        assertEquals(70, test.getHappiness());
         assertEquals(50, test.getWaste());
     }
 
     @Test
     public void shouldWaterPetAndIncreaseThirstAndHealthAndHappinessAndWasteStats() {
         test.waterPet();
-        assertEquals(100, test.getThirst());
+        assertEquals(150, test.getThirst());
         assertEquals(70, test.getHealth());
-        assertEquals(60, test.getHappiness());
+        assertEquals(70, test.getHappiness());
         assertEquals(50, test.getWaste());
     }
 
     @Test
     public void shouldPlayWithPetAndIncreaseBoredomAndHealthAndHappiness() {
         test.playPet();
-        assertEquals(100, test.getBoredom());
+        assertEquals(150, test.getBoredom());
         assertEquals(50, test.getHealth());
         assertEquals(70, test.getHappiness());
     }

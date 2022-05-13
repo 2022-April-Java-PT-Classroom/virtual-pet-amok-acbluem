@@ -33,22 +33,22 @@ public class OrganicPet extends VirtualPet {
     public void feedPet() {
         increaseHunger(100);
         increaseHealth(20);
-        increaseHappiness(10);
+        increaseHappiness(20);
     }
 
     public void feedTreat() {
-        increaseHunger(100);
-        increaseHappiness(10);
+        increaseHunger(50);
+        increaseHappiness(50);
     }
 
     public void waterPet() {
         increaseThirst(100);
         increaseHealth(20);
-        increaseHappiness(10);
+        increaseHappiness(20);
     }
 
     public void playPet() {
-        increaseBoredom(50);
+        increaseBoredom(100);
         increaseHappiness(20);
     }
 

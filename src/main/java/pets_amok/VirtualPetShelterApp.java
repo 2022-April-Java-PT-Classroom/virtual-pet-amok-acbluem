@@ -109,17 +109,24 @@ public class VirtualPetShelterApp {
 
                     shelter.entertainPet(pet);
                 } else if (selection == 2) {
-                    System.out.println("Select a treat option:");
-                    System.out.println("Meat");
-                    System.out.println("Hay");
-
-                    userInput.nextLine();
-                    String treat = userInput.nextLine();
-
                     System.out.println("Which pet would you like to give a treat?");
                     System.out.println("Please type the name exactly as it appears.");
 
+                    userInput.nextLine();
                     String pet = userInput.nextLine();
+
+                    System.out.println("Choose a treat option:");
+                    System.out.println("1. Meat");
+                    System.out.println("2. Hay");
+
+                    int treatChoice = userInput.nextInt();
+                    String treat = "";
+
+                    if (treatChoice == 1) {
+                        treat = "Meat";
+                    } else if (treatChoice == 2) {
+                        treat = "Hay";
+                    }
 
                     shelter.giveTreat(pet, treat);
                 }

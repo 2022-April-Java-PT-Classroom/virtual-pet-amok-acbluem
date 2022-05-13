@@ -15,7 +15,7 @@ public class RoboticPetTest {
     @Test
     public void shouldOilPet() {
         test.oilPet();
-        assertEquals(100, test.getOilLevel());
+        assertEquals(150, test.getOilLevel());
     }
 
     @Test

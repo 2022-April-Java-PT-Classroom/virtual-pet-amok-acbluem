@@ -49,8 +49,8 @@ public class VirtualPetShelterTest {
         shelter.addPet(testRoboticDog);
         shelter.feedPets();
 
-        assertEquals(100, testOrganicCat.getHunger());
-        assertEquals(100, testOrganicDog.getHunger());
+        assertEquals(150, testOrganicCat.getHunger());
+        assertEquals(150, testOrganicDog.getHunger());
     }
 
     @Test
@@ -61,8 +61,8 @@ public class VirtualPetShelterTest {
         shelter.addPet(testRoboticDog);
         shelter.waterPets();
 
-        assertEquals(100, testOrganicCat.getThirst());
-        assertEquals(100, testOrganicDog.getThirst());
+        assertEquals(150, testOrganicCat.getThirst());
+        assertEquals(150, testOrganicDog.getThirst());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class VirtualPetShelterTest {
         shelter.addPet(testRoboticDog);
         shelter.entertainPet("Test OD");
 
-        assertEquals(100, testOrganicDog.getBoredom());
+        assertEquals(150, testOrganicDog.getBoredom());
         assertEquals(50, testOrganicCat.getBoredom());
     }
 
@@ -85,8 +85,8 @@ public class VirtualPetShelterTest {
         shelter.addPet(testRoboticDog);
         shelter.oilPets();
 
-        assertEquals(100, testRoboticCat.getOilLevel());
-        assertEquals(100, testRoboticDog.getOilLevel());
+        assertEquals(150, testRoboticCat.getOilLevel());
+        assertEquals(150, testRoboticDog.getOilLevel());
     }
 
     @Test

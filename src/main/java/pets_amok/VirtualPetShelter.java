@@ -139,22 +139,25 @@ public class VirtualPetShelter {
                 if (pet instanceof OrganicCat || pet instanceof OrganicDog) {
                     if (treat.equals("Meat")) {
                         ((OrganicPet) pet).feedTreat();
+                        break;
                     } else if (treat.equals("Hay")) {
                         pet.decreaseHappiness(50);
                         System.out.println("Hay, that's not cool. This pet is not happy with this treat.\n");
+                        break;
                     }
                 } else if (pet instanceof OrganicHorse) {
                     if (treat.equals("Hay")) {
                         ((OrganicPet) pet).feedTreat();
+                        break;
                     } else if (treat.equals("Meat")) {
                         pet.decreaseHappiness(50);
                         System.out.println("This pet never wants to meat you again. This pet is not happy with this treat.\n");
+                        break;
                     }
                 } else {
-                    System.out.println("Sorry, we don't have this treat in stock.\n");
+                    System.out.println("Sorry, we either don't have this treat or pet in stock.\n");
+                    break;
                 }
-            } else {
-                System.out.println("This pet doesn't know what to do with this treat.\n");
             }
         }
     }
